@@ -1,0 +1,112 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/lb_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/str_title"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <LinearLayout
+        android:id="@+id/layout_ln"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
+
+        <ImageView
+            android:id="@+id/img_smile"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:paddingRight="20dp"
+            android:src="@drawable/happy_face" />
+
+        <ImageView
+            android:id="@+id/img_angry"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:src="@drawable/angry_face" />
+
+        <ImageView
+            android:id="@+id/img_sad"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:src="@drawable/sad_face" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_ln2"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp" >
+
+        <Button
+            android:id="@+id/btn_smile"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/camara"
+            android:text="@string/str_smile" />
+
+        <TextView
+            android:id="@+id/espacio"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:text="@string/str_espacio" />
+
+        <Button
+            android:id="@+id/btn_angry"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/camara"
+            android:text="@string/str_angry" />
+
+        <TextView
+            android:id="@+id/espacio2"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:text="@string/str_espacio" />
+
+        <Button
+            android:id="@+id/btn_sad"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/camara"
+            android:text="@string/str_sad" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_rela"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <Button
+            android:id="@+id/btn_regresar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="43dp"
+            android:text="@string/str_regresar"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/btn_sgte"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignBottom="@+id/btn_regresar"
+            android:layout_alignParentRight="true"
+            android:background="@android:drawable/checkbox_on_background"
+            android:text="@string/str_sgte" />
+    </RelativeLayout>
+
+</LinearLayout>

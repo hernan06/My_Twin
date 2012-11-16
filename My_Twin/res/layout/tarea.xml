@@ -1,0 +1,67 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/lb_tarea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/str_tarea"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/txt_tarea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/str_txttarea"
+        android:text="@string/str_txttarea" >
+    </EditText>
+
+    <LinearLayout
+        android:id="@+id/layout_ln3"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp" >
+
+        <Button
+            android:id="@+id/btn_starRecord"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/microfono"
+            android:text="@string/str_starRecord" />
+
+        <TextView
+            android:id="@+id/espacio"
+            android:layout_width="15dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.10"
+            android:text="@string/str_espacio" />
+
+        <Button
+            android:id="@+id/btn_finishRecord"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/pause"
+            android:text="@string/str_starRecord" />
+
+        <TextView
+            android:id="@+id/espacio1"
+            android:layout_width="15dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.15"
+            android:text="@string/str_espacio" />
+
+        <Button
+            android:id="@+id/btn_playRecord"
+            android:layout_width="42dp"
+            android:layout_height="41dp"
+            android:background="@drawable/play"
+            android:text="@string/str_starRecord" />
+    </LinearLayout>
+
+</LinearLayout>

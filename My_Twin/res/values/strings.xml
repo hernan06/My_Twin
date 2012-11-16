@@ -1,0 +1,30 @@
+<resources>
+
+    <string name="app_name">My Twin</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_principal">Principal</string>
+    <string name="title_create1">Create1</string>
+    <string name="title_create2">Create2</string>
+    <string name="title_tarea">Tarea</string>
+    <string name="title_NuevaTarea">Nueva Tarea</string>
+    <string name="title_MenuTarea">MenuTareas</string>
+    <string name="str_tarea">Tarea :</string>
+    <string name="str_txttarea"></string>
+    <string name="str_starRecord"></string>
+    <string name="str_espacio"></string>
+    <string name="str_title">Creating</string>
+    <string name="str_regresar">Regresar</string>
+    <string name="str_sgte"></string>
+    <string name="str_smile"></string>
+    <string name="str_angry"></string>
+    <string name="str_sad"></string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="prueba">KMCB</string>
+    <string name="title_activity_prueba">Prueba</string>
+    <string name="vacio"></string>
+    <string name="title_activity_nueva__tarea">Nueva_Tarea</string>
+    <string name="str_ajustes"></string>
+    <string name="str_menu">Tareas</string>
+    <string name="str_mm">Hernan</string>
+
+</resources>

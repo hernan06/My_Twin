@@ -1,0 +1,52 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/avatar" >
+
+    <Spinner
+        android:id="@+id/menu_tareas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:prompt="@string/str_menu" />
+
+    <Button
+        android:id="@+id/btn_ajustes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/menu_tareas"
+        android:layout_alignBottom="@+id/menu_tareas"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/menu_tareas"
+        android:text="@string/str_ajustes" />
+
+    <Button
+        android:id="@+id/add1"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/add"
+        android:text="@string/vacio" />
+
+    <Button
+        android:id="@+id/back1"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/back"
+        android:text="@string/vacio" />
+
+    <Button
+        android:id="@+id/tareas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/menu_tareas"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/tareas"
+        android:text="@string/vacio" />
+
+</RelativeLayout>
