@@ -1,0 +1,40 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ScrollView
+        android:id="@+id/scroll1"
+        android:layout_width="fill_parent"
+        android:layout_height="240dp" >
+
+        <RadioGroup
+            android:id="@+id/rdTareas"
+            android:layout_width="wrap_content"
+            android:layout_height="240dp" >
+        </RadioGroup>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/back3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="38dp"
+        android:layout_marginLeft="35dp"
+        android:background="@drawable/back"
+        android:text="@string/vacio" />
+
+    <Button
+        android:id="@+id/add2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/back3"
+        android:layout_alignBottom="@+id/back3"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="29dp"
+        android:background="@drawable/add"
+        android:text="@string/vacio" />
+
+</RelativeLayout>

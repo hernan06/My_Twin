@@ -47,6 +47,19 @@
             android:name=".Nueva_Tarea"
             android:label="@string/title_NuevaTarea" >
         </activity>
+        <activity
+            android:name=".RecordarTarea"
+            android:label="@string/RecordarTarea" >
+        </activity>
+        <activity
+            android:name=".ListaTareas"
+            android:label="@string/title_activity_lista_tareas" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

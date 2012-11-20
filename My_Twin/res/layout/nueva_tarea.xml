@@ -1,57 +1,65 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FF000000" >
+    android:layout_height="match_parent" >
+
+    <Button
+        android:id="@+id/btn_startRecord"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="23dp"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/microfono"
+        android:text="@string/str_starRecord" />
+
+    <Button
+        android:id="@+id/btn_StopRecord"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignBaseline="@+id/btn_startRecord"
+        android:layout_alignBottom="@+id/btn_startRecord"
+        android:layout_marginLeft="18dp"
+        android:layout_toRightOf="@+id/btn_startRecord"
+        android:background="@drawable/pause"
+        android:text="@string/str_starRecord" />
 
     <TimePicker
         android:id="@+id/horaTarea"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/btn_startRecord"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="38dp" />
-
-    <Button
-        android:id="@+id/ok1"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="40dp"
-        android:layout_marginRight="40dp"
-        android:background="@drawable/check"
-        android:text="@string/vacio" />
+        android:layout_marginTop="27dp" />
 
     <Button
         android:id="@+id/back2"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="false"
-        android:layout_marginBottom="40dp"
-        android:layout_marginLeft="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/horaTarea"
+        android:layout_marginTop="64dp"
         android:background="@drawable/cancel"
         android:text="@string/vacio" />
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/horaTarea"
-        android:layout_marginTop="31dp"
-        android:background="#FF000000"
-        android:text="Nueva Tarea: "
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#FFFFFFFF" />
+    <Button
+        android:id="@+id/ok1"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignBaseline="@+id/back2"
+        android:layout_alignBottom="@+id/back2"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/check"
+        android:text="@string/vacio" />
 
-    <EditText
-        android:id="@+id/tareaNueva"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:ems="25" />
+    <Button
+        android:id="@+id/btn_PlayRecord"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_above="@+id/horaTarea"
+        android:layout_alignRight="@+id/horaTarea"
+        android:background="@drawable/play"
+        android:text="@string/str_starRecord" />
 
 </RelativeLayout>

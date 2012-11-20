@@ -1,84 +1,108 @@
 package com.example.my.twin;
 
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class MenuTareas extends Activity {
-	CharSequence items[]={"Lavar Ropa","Pasar por Fiec","Juega Barza","Recuperacion Redes"};
-	boolean[] itemsChecked=new boolean[items.length];
+public class MenuTareas extends Activity {	
+	static int cont=3;
 	
-    @Override
+	
+	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tareas);        
-        Button back1=(Button) findViewById(R.id.back1);
-        Button add1=(Button) findViewById(R.id.add1);
-        Button tareasList=(Button) findViewById(R.id.tareas);
-        
-        
-        
-        tareasList.setOnClickListener(new View.OnClickListener() {
-			
-			public void onClick(View v) {
-				showDialog(0);
-			}
-		});
-        
-        add1.setOnClickListener(new OnClickListener() {
-			
-			public void onClick(View v) {
-				Intent intent=new Intent(MenuTareas.this,Tarea.class);				
-				startActivity(intent);				
-			}
-		});
-        
-        back1.setOnClickListener(new OnClickListener() {
-			
-			public void onClick(View v) {
-				Regresar();			
-				finish();				
+        setContentView(R.layout.tareas);
+        String str ="";
+        File sdCard, directory, file = null;
+		// Clase que permite grabar texto en un archivo
+        sdCard = Environment.getExternalStorageDirectory();
+		FileOutputStream fout = null;
+		try {
+			// instanciamos un onjeto File para crear un nuevo
+			// directorio
+			// la memoria externa
+			directory = new File(sdCard.getAbsolutePath()
+					+ "/Mis archivos");
+			// se crea el nuevo directorio donde se cerara el
+			// archivo
+			directory.mkdirs();
+
+			// creamos el archivo en el nuevo directorio creado
+			file = new File(directory, "BaseDeDatosTW.txt");
+
+			if(!file.exists()){
+				fout = new FileOutputStream(file);
+				// Convierte un stream de caracteres en un stream de
+				// bytes
+				OutputStreamWriter ows = new OutputStreamWriter(fout);
+				ows.write(str); // Escribe en el buffer la cadena de texto
+				ows.flush(); // Volca lo que hay en el buffer al archivo
+				ows.close(); // Cierra el archivo de texto
+	
+				Toast.makeText(getBaseContext(),
+						"El archivo se ha almacenado!!!",
+						Toast.LENGTH_SHORT).show();
+	
+				//txtTexto.setText("");
 			}
 
-		});
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
-    
 
-	private void Regresar() {
-		Intent itRegresar=new Intent(this,Create2.class);
-		startActivity(itRegresar);
-		
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater=getMenuInflater();
+		inflater.inflate(R.menu.main, menu);
+		return true;
 	}
-    @Override
-    protected Dialog onCreateDialog(int id){
-    	switch(id){
-    	case 0:
-    		return new AlertDialog.Builder(this)
-    		.setIcon(R.drawable.ic_tareas)
-    		.setTitle("Lista de Tareas")
-    		.setPositiveButton("Ok",new DialogInterface.OnClickListener() {
-				
-				public void onClick(DialogInterface dialog, int which) {
-					Toast.makeText(getBaseContext(),"Ok", Toast.LENGTH_SHORT).show();
-					
-				}
-			})
-			.setMultiChoiceItems(items, itemsChecked, new DialogInterface.OnMultiChoiceClickListener() {
-				
-				public void onClick(DialogInterface dialog, int which, boolean isChecked) {
-					Toast.makeText(getBaseContext(),items[which] + (isChecked ? " Realizado":""),Toast.LENGTH_SHORT).show();
-					
-				}
-			})
-			.create();
-    	}
-    	return null;
-    }    
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch(item.getItemId()){
+		case R.id.exit:
+			this.finish();
+			break;
+		case R.id.Tarea:
+			Tareas();
+			break;
+		case R.id.Modificar:
+			break;
+		case R.id.Programar:
+			break;
+		}
+		return false;
+	}
+
+	private void Tareas() {
+		int j=0;
+		Intent intent=new Intent(MenuTareas.this,ListaTareas.class);
+		if(getIntent().getExtras()!=null){					
+			Bundle bundle=getIntent().getExtras();
+			int i=bundle.getInt("agregar");
+			intent.putExtra("agregar",i);				    
+		}else{
+			intent.putExtra("agregar",j);
+			Toast.makeText(getBaseContext(), "null", Toast.LENGTH_SHORT).show();
+		}
+		startActivity(intent);
+		
+	}  
+	
 }

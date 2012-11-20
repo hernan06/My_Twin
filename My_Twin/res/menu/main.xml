@@ -1,0 +1,6 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/Tarea" android:title="@string/TareaMenu"></item>
+    <item android:id="@+id/Modificar" android:title="@string/ModificarMenu"></item>
+    <item android:id="@+id/Programar" android:title="@string/ProgramarMenu"></item>
+    <item android:id="@+id/exit" android:title="@string/exitOption" android:alphabeticShortcut="x"></item>
+</menu>

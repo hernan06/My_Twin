@@ -41,29 +41,31 @@ public class Tarea extends Activity implements OnClickListener,OnCompletionListe
 		switch(v.getId()){
 		case R.id.btn_starRecord:
 			try{
-    			grabar(v);			
+    			grabar(v);	
+    			Toast.makeText(getBaseContext(),"Grabando", Toast.LENGTH_SHORT).show();
     		}catch(Exception e){
     			e.printStackTrace();
-    			Toast.makeText(getBaseContext(),"Grabar", Toast.LENGTH_SHORT).show();
     		}
 			break;
 		case R.id.btn_finishRecord:
 			try{
     			detener(v);
+    			Toast.makeText(getBaseContext(),"Pausado", Toast.LENGTH_SHORT).show();
     		}catch(Exception e){
     			e.printStackTrace();
-    			Toast.makeText(getBaseContext(),"Detener", Toast.LENGTH_SHORT).show();
     		}
 			break;
 		case R.id.btn_playRecord:
 			try{
     			reproducir(v);
+    			Toast.makeText(getBaseContext(),"Reproduciendo", Toast.LENGTH_SHORT).show();
     		}catch(Exception e){
     			e.printStackTrace();
-    			Toast.makeText(getBaseContext(),"Reproducir", Toast.LENGTH_SHORT).show();
+    			
     		}
 			break;
 		}
+
 	}
 
 	public void grabar(View v) {
