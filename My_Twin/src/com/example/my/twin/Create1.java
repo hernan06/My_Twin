@@ -2,10 +2,14 @@ package com.example.my.twin;
 
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 
+import android.R.bool;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
@@ -14,6 +18,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
+import android.graphics.Bitmap.CompressFormat;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -23,6 +28,7 @@ import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 
@@ -32,6 +38,9 @@ public class Create1 extends Activity implements OnClickListener{
 	ImageView imgSmile,imgAngry,imgSad;
 	Bitmap photo;
 	Intent itRegresar,itSiguiente;
+	int cont_Image = 0;
+	boolean flag_smile=false,flag_sad=false,flag_angry=false;
+	
 	
 	private static final int PICK_FROM_CAMERA = 1;
 	private static final int CROP_FROM_CAMERA = 2;
@@ -77,11 +86,12 @@ public class Create1 extends Activity implements OnClickListener{
 		} );
 		
 		final AlertDialog dialog = builder.create();
+		//File ruta_sd = Environment.getExternalStorageDirectory();
+	    //File f = new File(ruta_sd.getAbsolutePath(), "/Mis archivos/BaseDeDatosTW.txt");
         
         btSmile=(Button) findViewById(R.id.btn_smile);
         btAngry=(Button) findViewById(R.id.btn_angry);
         btSad=(Button) findViewById(R.id.btn_sad);
-        regresar=(Button) findViewById(R.id.btn_regresar);
         sgte=(Button) findViewById(R.id.btn_sgte);
         
         
@@ -93,7 +103,7 @@ public class Create1 extends Activity implements OnClickListener{
 			
 			public void onClick(View v) {
 				dialog.show();
-				imgSmile.setImageBitmap(photo);
+				cont_Image = 0;
 			}
 		});
         
@@ -101,20 +111,18 @@ public class Create1 extends Activity implements OnClickListener{
 			
 			public void onClick(View v) {
 				dialog.show();
-				imgAngry.setImageBitmap(photo);
+				cont_Image = 1;
 			}
 		});
         btSad.setOnClickListener(new View.OnClickListener() {
 			
 			public void onClick(View v) {
 				dialog.show();
-				imgSad.setImageBitmap(photo);
+				cont_Image = 2;
 			}
 		});
         
         
-        
-        regresar.setOnClickListener(this);
         sgte.setOnClickListener(this);
         
         
@@ -122,11 +130,11 @@ public class Create1 extends Activity implements OnClickListener{
 
 	public void onClick(View v) {
 		switch(v.getId()){
-		case R.id.btn_regresar:
-			Regresar();
-			break;
 		case R.id.btn_sgte:
-			Siguiente();
+			if(flag_smile&&flag_sad&&flag_angry)
+				Siguiente();
+			else
+				Toast.makeText(getBaseContext(),"Debe Completar la toma de fotos",Toast.LENGTH_SHORT).show();
 			break;
 		}
 		
@@ -135,12 +143,9 @@ public class Create1 extends Activity implements OnClickListener{
 	private void Siguiente() {
 		itSiguiente = new Intent(this,Create2.class);
 		startActivity(itSiguiente);
+		finish();
 	}
 
-	private void Regresar() {
-		itRegresar = new Intent(this,Principal.class);
-		startActivity(itRegresar);		
-	}
 
 		
 	@Override
@@ -165,7 +170,40 @@ public class Create1 extends Activity implements OnClickListener{
 	
 		        if (extras != null) {	        	
 		            photo = extras.getParcelable("data");
-		            //AQUIII
+		            OutputStream os = null;
+		            switch(cont_Image){
+			            case 0:
+				            try {
+				            	os = new FileOutputStream("/sdcard/Mis archivos/" + "smile.jpg");
+				                imgSmile.setImageBitmap(photo);
+				                photo.compress(CompressFormat.JPEG, 100, os);
+				                flag_smile=true;
+				            } catch(IOException e) {
+				                e.printStackTrace();
+				            }
+				            break;
+				        case 1:
+				        	try {
+				                os = new FileOutputStream("/sdcard/Mis archivos/" + "angry.jpg");
+				                imgAngry.setImageBitmap(photo);
+				                photo.compress(CompressFormat.JPEG, 100, os);
+				                flag_sad=true;
+				            } catch(IOException e) {
+				                e.printStackTrace();
+				            }
+				            break;
+				        case 2:
+				        	try {
+				                os = new FileOutputStream("/sdcard/Mis archivos/" + "sad.jpg");
+				                imgSad.setImageBitmap(photo);
+				                photo.compress(CompressFormat.JPEG, 100, os);
+				                flag_angry=true;
+				            } catch(IOException e) {
+				                e.printStackTrace();
+				            }
+				            break;
+			         
+		            }
 		        }
 		        
 		        File f = new File(mImageCaptureUri.getPath());            

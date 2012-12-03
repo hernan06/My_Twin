@@ -35,7 +35,9 @@
     <string name="ProgramarMenu">Telefono</string>
     <string name="exitOption">Exit</string>
     <string name="str_Modo">Modo</string>
-    <string name="str_Wifi">Wifi On/Off</string>
+    <string name="str_Wifi">WIFI On/Off</string>
     <string name="str_Stop">STOP</string>
+    <string name="str_gps">GPS On/Off</string>
+    <string name="str_sexo">SEXO</string>
 
 </resources>

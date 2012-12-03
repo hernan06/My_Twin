@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"> 
+    
+    <item android:title="Buscar" 
+        android:icon="@drawable/buscar" 
+        android:orderInCategory="3" 
+        android:id="@+id/buscar"/> 
+        
+    <item android:title="Compras" 
+        android:icon="@drawable/tags" 
+        android:orderInCategory="2" 
+        android:id="@+id/compras"/> 
+        
+    <item android:title="Disabled" 
+        android:orderInCategory="4" 
+        android:id="@+id/disabled" 
+        android:enabled="false"/> 
+        
+    <group android:id="@+id/Otros" 
+        android:visible="false" 
+        android:menuCategory="secondary"> 
+        
+        <item android:title="Uno" 
+            android:orderInCategory="0" 
+            android:id="@+id/uno"/> 
+        <item android:title="Dos" 
+            android:orderInCategory="1" 
+            android:id="@+id/dos"/> 
+     </group>
+     <item android:title="Submenú" 
+         android:orderInCategory="3" 
+         android:id="@+id/submenu"> 
+     	 <menu> 
+	         <item android:title="Se ve"
+	              android:id="@+id/categoria" 
+	              android:visible="true"/> 
+	         <item android:title="No se ve" 
+	             android:id="@+id/favoritos" 
+	             android:visible="false"/> 
+      	 </menu> 
+    </item>
+</menu>

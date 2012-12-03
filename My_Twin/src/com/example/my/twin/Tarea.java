@@ -101,7 +101,8 @@ public class Tarea extends Activity implements OnClickListener,OnCompletionListe
         try {
             player.prepare();
         } catch (IOException e) {
-        }            
+        }      
+        
         btnPlay.setEnabled(true);        
         btnFinish.setEnabled(false);
         btnStar.setEnabled(true);      

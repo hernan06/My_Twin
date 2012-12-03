@@ -50,11 +50,6 @@ public class Nueva_Tarea extends Activity implements OnClickListener,OnCompletio
         super.onCreate(savedInstanceState);
         setContentView(R.layout.nueva_tarea);
         
-        /*db.open();
-        long id = db.insertContact("Wei-Meng Lee", "weimenglee@learn2develop.net");
-        id = db.insertContact("Mary Jackson", "mary@jackson.com");
-        db.close();*/
-        
         
         
         Button cancel1=(Button) findViewById(R.id.back2);
@@ -76,8 +71,7 @@ public class Nueva_Tarea extends Activity implements OnClickListener,OnCompletio
 	     time.minute=(int)tp.getCurrentMinute();
 	     time.second=(int)calendario.get(Calendar.SECOND);
 	     
-	     Toast.makeText(getBaseContext(), "h:"+time.hour+"m:"+time.minute+"s:"+time.second, Toast.LENGTH_SHORT).show();
-
+	     
 		
         
         cancel1.setOnClickListener(new OnClickListener() {
@@ -93,43 +87,28 @@ public class Nueva_Tarea extends Activity implements OnClickListener,OnCompletio
 			
 
 			public void onClick(View v) {
-				int i=1;
+				Bundle bundle=getIntent().getExtras();
+				int i=1;   int numeroTareas;
 				Intent intent=new Intent(Nueva_Tarea.this,ListaTareas.class);
-				//intent.putExtra("tareAgregada", tarea_nueva.getText().toString());
+				TimePicker tp=(TimePicker) findViewById(R.id.horaTarea);
+				Time time2 = new Time();
+				
 				intent.putExtra("agregar",i);
 				Toast.makeText(getBaseContext(),"agregar", Toast.LENGTH_SHORT).show();
-				int hour=time.hour;  int minute=time.minute;  int second=time.second;
-				int MSeconds;        int mSeconds;
-				int diferencia;
-				Calendar calendario = new GregorianCalendar();
-				
-				Time time2 = new Time();
-		        TimePicker tp=(TimePicker) findViewById(R.id.horaTarea);
+				numeroTareas=bundle.getInt("identificador");
 		        tp.clearFocus();
 		        time2.hour=(int)tp.getCurrentHour();
 		        time2.minute=(int)tp.getCurrentMinute();
-		        time2.second=(int)calendario.get(Calendar.SECOND);
-		        mSeconds=hour*3600+minute*60+second;
-		        MSeconds=time2.hour*3600+time2.minute*60+time2.second;
-		        diferencia=MSeconds-mSeconds;	        
-		        if(MSeconds>mSeconds){	        	
-		        	establecerAlarmaClick(diferencia);
-		        	Toast.makeText(getBaseContext(), "time:"+diferencia, Toast.LENGTH_SHORT).show();
-		        }
 				startActivity(intent);
 				finish();
-				String newTarea=",Tarea"+".3gp,"+time2.hour+":"+time2.minute;
-				Toast.makeText(getBaseContext(),newTarea+" ", Toast.LENGTH_SHORT).show();
+				String newTarea=numeroTareas+",Tarea"+numeroTareas+".3gp,"+time2.hour+":"+time2.minute;
+			
 				AgregarTarea(newTarea);
 
 			}
 		});
         
     }
-
-
-	
-
 
 	protected void AgregarTarea(String newTarea) {
 		String texto="";
@@ -158,69 +137,35 @@ public class Nueva_Tarea extends Activity implements OnClickListener,OnCompletio
 	}
 
 
-
-
-
 	private void SobrescribirArchivo(ArrayList<String> tareas) {
 		File sdCard, directory, file = null;
 		String str="";
-		// Clase que permite grabar texto en un archivo
         sdCard = Environment.getExternalStorageDirectory();
 		FileOutputStream fout = null;
 		
 		try {
-			// instanciamos un onjeto File para crear un nuevo
-			// directorio
-			// la memoria externa
 			directory = new File(sdCard.getAbsolutePath()
 					+ "/Mis archivos");
-			// se crea el nuevo directorio donde se cerara el
-			// archivo
 			directory.mkdirs();
 
-			// creamos el archivo en el nuevo directorio creado
 			file = new File(directory, "BaseDeDatosTW.txt");
 				
 				fout = new FileOutputStream(file);
-				// Convierte un stream de caracteres en un stream de
-				// bytes
 				OutputStreamWriter ows = new OutputStreamWriter(fout);
 				for(String s:tareas){
-					ows.write(s); // Escribe en el buffer la cadena de texto
-					ows.flush(); // Volca lo que hay en el buffer al archivo
+					ows.write(s);
+					ows.flush(); 
 					ows.write("\n");
 				}
 				
-				ows.close(); // Cierra el archivo de texto
+				ows.close(); 
 	
-				Toast.makeText(getBaseContext(),
-						"El archivo se ha modificado!!!",
-						Toast.LENGTH_SHORT).show();
-	
-				//txtTexto.setText("");
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 	}
-
-
-
-
-
-	protected void establecerAlarmaClick(int diferencia) {
-		AlarmManager manager=(AlarmManager) this.getSystemService(ALARM_SERVICE);
-		Intent intent  = new Intent(this,RecordarTarea.class);
-		PendingIntent pIntent=PendingIntent.getActivity(getApplicationContext(), 3333, intent, PendingIntent.FLAG_CANCEL_CURRENT);
-		  
-        manager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + diferencia * 1000, pIntent);
-        finish();
-
-		
-	}
-
 
 	public void onCompletion(MediaPlayer mp) {
 		btnPlay.setEnabled(true);        
@@ -274,7 +219,7 @@ public class Nueva_Tarea extends Activity implements OnClickListener,OnCompletio
 
 	private void detener(View v) {
 		recorder.stop();
-        recorder.release();    
+        recorder.release();   
         player = new MediaPlayer();
         player.setOnCompletionListener(this);
         try {
@@ -293,10 +238,11 @@ public class Nueva_Tarea extends Activity implements OnClickListener,OnCompletio
 
 	private void grabar(View v) {
 		 	recorder = new MediaRecorder();
+		 	
 	        recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
 	        recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-	        recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
-	        File path = new File("/sdcard/data");
+	       
+	        File path = new File("/sdcard/Mis archivos/");
 	        Bundle bundle=getIntent().getExtras();
 	        String name="Tarea"+bundle.getInt("identificador")+".3gp";
 	        Toast.makeText(getBaseContext(),name, Toast.LENGTH_SHORT).show();
@@ -306,7 +252,7 @@ public class Nueva_Tarea extends Activity implements OnClickListener,OnCompletio
 	        	e.printStackTrace();
 	        }
 	        recorder.setOutputFile(archivo.getAbsolutePath());
-	        
+	        recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
 	        try {
 	            recorder.prepare();
 	        } catch (IOException e) {

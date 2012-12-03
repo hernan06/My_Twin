@@ -1,25 +1,70 @@
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent" 
-        android:orientation="vertical">
-
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
         <TextView
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
             android:text="@string/str_Modo"
             android:textAppearance="?android:attr/textAppearanceLarge" />
-
+
         <Spinner
             android:id="@+id/sp_modo"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textView1"
+            android:entries="@array/array_modo_telefono" />
+
         <CheckBox
             android:id="@+id/ckb_wifi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/sp_modo"
+            android:layout_marginTop="18dp"
             android:text="@string/str_Wifi" />
 
-    </LinearLayout>
+        <CheckBox
+            android:id="@+id/ckb_gps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/ckb_wifi"
+            android:layout_alignBottom="@+id/ckb_wifi"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="23dp"
+            android:text="@string/str_gps" />
+
+        <Button
+            android:id="@+id/btn_programar"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/add"
+            android:text="@string/vacio" />
+
+        <Button
+            android:id="@+id/btn_regresar"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignBaseline="@+id/btn_programar"
+            android:layout_alignBottom="@+id/btn_programar"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/back_button"
+            android:text="@string/vacio" />
+
+        <TimePicker
+            android:id="@+id/tp_alarm_program"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/btn_programar"
+            android:layout_toRightOf="@+id/textView1" />
+
+    </RelativeLayout>

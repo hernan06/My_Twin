@@ -1,0 +1,8 @@
+
+    <resources>
+        <string-array name="array_modo_telefono">
+            <item >Silencio</item>
+            <item >Vibrador</item>
+            <item >Normal</item>
+        </string-array>
+    </resources>

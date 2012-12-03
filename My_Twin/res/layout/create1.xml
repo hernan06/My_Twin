@@ -4,14 +4,6 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/lb_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/str_title"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
     <LinearLayout
         android:id="@+id/layout_ln"
         android:layout_width="match_parent"
@@ -90,23 +82,24 @@
         android:layout_height="match_parent" >
 
         <Button
-            android:id="@+id/btn_regresar"
+            android:id="@+id/btn_sgte"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/next_icon"
+            android:text="@string/str_sgte" />
+
+        <TextView
+            android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
-            android:layout_marginBottom="43dp"
-            android:text="@string/str_regresar"
-            android:textSize="20dp" />
+            android:layout_alignParentTop="true"
+            android:text="@string/str_espacio"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <Button
-            android:id="@+id/btn_sgte"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_alignBottom="@+id/btn_regresar"
-            android:layout_alignParentRight="true"
-            android:background="@android:drawable/checkbox_on_background"
-            android:text="@string/str_sgte" />
     </RelativeLayout>
 
 </LinearLayout>

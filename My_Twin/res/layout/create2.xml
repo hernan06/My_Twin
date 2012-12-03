@@ -6,13 +6,13 @@
 
     <ImageView
         android:id="@+id/principal"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_gravity="center_horizontal"
         android:src="@drawable/cuerpo1" />
 
     <HorizontalScrollView
-        android:layout_width="250dp"
+        android:layout_width="225dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal" >
 
@@ -23,33 +23,74 @@
 
             <ImageView
                 android:id="@+id/cp1"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
                 android:layout_gravity="center_horizontal"
                 android:paddingLeft="15dp"
                 android:src="@drawable/cuerpo1" />
 
             <ImageView
                 android:id="@+id/cp2"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
                 android:layout_gravity="center_horizontal"
                 android:paddingLeft="15dp"
                 android:src="@drawable/cuerpo2" />
 
             <ImageView
                 android:id="@+id/cp3"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
                 android:layout_gravity="center_horizontal"
                 android:src="@drawable/cuerpo3" />
+            
+            <ImageView
+                android:id="@+id/cp4"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/cuerpo4" />
+            
+            <ImageView
+                android:id="@+id/cp5"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/cuerpo5" />
+            
+            <ImageView
+                android:id="@+id/cp6"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/cuerpo6" />
         </LinearLayout>
     </HorizontalScrollView>
 
-    <Button
-        android:id="@+id/btn_sgte"
-        android:layout_width="87dp"
-        android:layout_height="wrap_content"
-        android:text="@string/str_sgte" />
+	<RelativeLayout
+	    android:id="@+id/layout_rela"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent" >
+
+	    <Button
+	        android:id="@+id/btn_regresar"
+	        android:layout_width="60dp"
+	        android:layout_height="60dp"
+	        android:layout_alignParentLeft="true"
+	        android:layout_centerVertical="true"
+	        android:background="@drawable/back_button"
+	        android:text="@string/vacio"
+	        android:textSize="20dp" />
+
+	    <Button
+	        android:id="@+id/btn_sgte"
+	        android:layout_width="55dp"
+	        android:layout_height="55dp"
+	        android:layout_alignParentRight="true"
+	        android:layout_alignTop="@+id/btn_regresar"
+	        android:background="@drawable/next_icon"
+	        android:text="@string/str_sgte" />
+
+	</RelativeLayout>
 
 </LinearLayout>

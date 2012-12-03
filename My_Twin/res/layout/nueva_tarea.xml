@@ -40,7 +40,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/horaTarea"
         android:layout_marginTop="64dp"
-        android:background="@drawable/cancel"
+        android:background="@drawable/back_button"
         android:text="@string/vacio" />
 
     <Button
@@ -50,7 +50,7 @@
         android:layout_alignBaseline="@+id/back2"
         android:layout_alignBottom="@+id/back2"
         android:layout_alignParentRight="true"
-        android:background="@drawable/check"
+        android:background="@drawable/add"
         android:text="@string/vacio" />
 
     <Button

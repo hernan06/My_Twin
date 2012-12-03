@@ -13,7 +13,14 @@
     </uses-permission>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" >
     </uses-permission>
-
+    <uses-permission android:name="android.permission.VIBRATE">
+    </uses-permission>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE">
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE">
+    </uses-permission>
+    
+s
     <application
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
@@ -26,6 +33,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            
         </activity>
         <activity
             android:name=".Create1"
@@ -38,6 +46,7 @@
         <activity
             android:name=".Tarea"
             android:label="@string/title_tarea" >
+            
         </activity>
         <activity
             android:name=".MenuTareas"
@@ -54,11 +63,10 @@
         <activity
             android:name=".ListaTareas"
             android:label="@string/title_activity_lista_tareas" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        </activity>
+         <activity
+            android:name=".Programar"
+            android:label="@string/title_activity_lista_tareas" >
         </activity>
     </application>
 
